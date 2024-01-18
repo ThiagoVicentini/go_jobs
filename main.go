@@ -1,7 +1,21 @@
 package main
 
-import "github.com/ThiagoVicentini/go_jobs/router"
+import (
+	"github.com/ThiagoVicentini/go_jobs/config"
+	"github.com/ThiagoVicentini/go_jobs/router"
+)
+
+var (
+	logger *config.Logger
+)
 
 func main() {
+	logger = config.GetLogger("main")
+	err := config.Init()
+	if err != nil {
+		logger.Errorf("config initialization error: %v", err)
+		return
+	}
+
 	router.Initialize()
 }
