@@ -1,0 +1,10 @@
+*.exe
+*.bin
+*.dll
+*.so
+
+*.test
+
+*.out
+Db folder
+db/
